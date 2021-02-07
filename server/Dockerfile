@@ -9,12 +9,6 @@ COPY . $HOME/app/.
 
 WORKDIR $HOME/app
 
-RUN rm -rf node_modules
-
-RUN npm install
-
 EXPOSE 3000
 
-RUN pwd
-
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "prod"]

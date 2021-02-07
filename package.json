@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && npm install && npm run build && cd .. && docker-compose up"
+    "build-server": "cd server && npm install && npm run tsc",
+    "build-client": "cd client && npm install && npm run build",
+    "start": "npm run build-client && npm run build-server && docker-compose up --build -V"
   },
   "author": "",
   "license": "ISC"
