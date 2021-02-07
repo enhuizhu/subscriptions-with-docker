@@ -1,0 +1,43 @@
+<div *ngIf="userPlan">
+  <h3>
+    you selected Plan:
+  </h3>
+  <table>
+    <tr>
+      <th>Plan Code</th>
+      <th>Name</th>
+      <th>Monthly Cost</th>
+      <th>Annual Cost</th>
+    </tr>
+    <tr *ngFor="let plan of userPlan.subscriptions">
+      <td>{{plan.planCode}}</td>
+      <td>{{plan.name}}</td>
+      <td>{{plan.monthlyCost | currency: 'GBP'}}</td>
+      <td>{{plan.yearlyCost | currency: 'GBP'}}</td>
+    </tr>
+  </table>
+  
+  <div class="mgt-10 mgb-10">
+    <span>
+      <input 
+        type="radio" 
+        name="period" 
+        [value]="MONTHLY"
+        [(ngModel)]="currentSelection"
+      /> 
+      Monthly
+    </span>
+    <span>
+      <input 
+        type="radio" 
+        name="period" 
+        [value]="YEARLY"
+        [(ngModel)]="currentSelection"
+      > Yearly
+    </span>
+  </div>
+  
+  <div>
+    Total: {{getTotal() | currency: 'GBP'}}
+  </div>
+</div>

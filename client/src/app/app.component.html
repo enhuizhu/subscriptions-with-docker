@@ -1,0 +1,10 @@
+<div>
+  <div *ngIf="allPlans.length === 0">
+    <button (click)="initPlans()">Initialize Plans</button>
+  </div>
+  <div *ngIf="userPlan">
+    <app-user-selected-plans [userPlan]="userPlan"></app-user-selected-plans>
+  </div>
+  
+  <app-list-plans [allPlans]="allPlans" (onUpdate)="updatePlans()"></app-list-plans>
+</div>

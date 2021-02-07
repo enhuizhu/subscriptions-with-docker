@@ -1,0 +1,38 @@
+<div>
+  <h3>
+    All Plans:
+  </h3>
+  
+  <table>
+    <tr>
+      <th>chose plan</th>
+      <th>Plan Code</th>
+      <th>Name</th>
+      <th>Monthly Cost</th>
+      <th>Annual Cost</th>
+    </tr>
+    <tr *ngFor="let plan of allPlans">
+      <td>
+        <input 
+          type="checkbox" 
+          name='selectedPlans' 
+          [value]="plan._id" 
+          [(ngModel)]='plan.checked' 
+          (change)='updatePlans()'
+        />
+      </td> 
+      <td>
+        <img [src]="'/assets/flags/' + plan.planCode + '.png'"/>
+      </td>
+      <td>
+        {{plan.name}}
+      </td>
+      <td>
+        {{plan.monthlyCost | currency: 'GBP'}}
+      </td>
+      <td>
+        {{plan.yearlyCost | currency: 'GBP'}}
+      </td>
+    </tr>  
+  </table>  
+</div>
