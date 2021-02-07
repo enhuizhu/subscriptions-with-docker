@@ -1,0 +1,11 @@
+{
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm install && npm run build && cd .. && docker-compose up"
+  },
+  "author": "",
+  "license": "ISC"
+}
